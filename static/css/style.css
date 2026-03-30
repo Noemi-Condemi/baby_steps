@@ -1,0 +1,610 @@
+/* -------- RESET -------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* -------- BASE -------- */
+
+html, body {
+    font-family: Poppins, Nunito, Quicksand;
+    background-color: #fff5f8;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #333;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff5f8;
+}
+
+label {
+    align-self: flex-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+/* -------- LAYOUT -------- */
+
+#topHeader {
+    width: 100%;
+    background: linear-gradient(to bottom, #fc517b, #ffb6b9);
+    color: white;
+    text-align: center;
+    padding: 50px 15px 60px 15px;    
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 380px;
+    margin: -60px auto 30px auto;
+    padding: 30px 25px;
+    background-color: #fff;
+    border-radius: 24px;
+    gap: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);  
+}
+
+.screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 12px;    
+}
+
+#greetingScreen,
+#mainMenu,
+#addJournal,
+#journal,
+#progress {
+    display: none;
+}
+
+
+/* -------- FORM ELEMENTS -------- */
+
+
+input, 
+select, 
+textarea {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #ff9aa2;
+    font-size: 15px;
+    font-family: inherit;
+    background-color: #fff;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+    border-color: #ff3b6c;
+    box-shadow: 0 0 0 4px rgba(255, 154, 162, 0.2);
+}
+
+input[type="date"] {
+    appearance: none;
+}
+
+#userInfo,
+#startPregnancyDate {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 22px;
+}
+
+
+/* -------- BUTTONS -------- */
+
+
+#welcomeSubmitBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.app-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(to bottom, #ff3b6c, #fa8f9b);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.15s ease, background 0.3s ease;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.app-btn:hover{
+    background: linear-gradient(to bottom, #f3184f, #ff8aa0);
+}
+
+.app-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+/* -------- GREETING / MENU -------- */
+
+
+#greetingScreen {
+    justify-content: flex-start;
+    text-align: center;
+    padding: 20px;
+}
+
+#greetingScreen h2 {
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+#greetingScreen p {
+    margin: 0 0 28px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+#continueBtn {
+    margin-top: 6px;
+}
+
+#mainMenu {
+    gap: 18px;
+    padding-top: 0;
+}
+
+#mainMenu h2 {
+    margin: 0;
+}
+
+.menu-subtitle {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+    margin: 0 0 12px 0;
+}
+
+.welcome-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #7a7a7a;
+}
+
+.username-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff4f7d;
+}
+
+
+/* -------- JOURNAL LIST -------- */
+
+
+#journalList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.entry-card {
+    width: 100%;
+    max-width: 320px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entry-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.entry-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.entry-main-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    text-align: left;
+}
+
+.entry-header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff4f7d;
+}
+
+.entry-datetime {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.4;
+}
+
+.entry-summary {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.entry-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    text-align: left;
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.25s ease;
+}
+
+.entry-body.open {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+.entry-body p {
+    margin: 0;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.toggle-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #ffe3ea;
+    color: #ff4f7d;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.toggle-btn:hover {
+    transform: translateY(-1px);
+    background: #ffd6e3;
+}
+
+.entry-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.entry-actions button {
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #ff3b6c, #fa8f9b);
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.entry-actions button:hover{
+    background: linear-gradient(to bottom, #f3184f, #ff8aa0);
+}
+
+
+/* -------- ADD JOURNAL -------- */
+
+
+#addJournal {
+    width: 100%;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    background: #fff5f8;
+    border-radius: 18px;
+}
+
+#addJournal > label {
+    width: 100%;
+    max-width: 320px;
+    text-align: left;
+    margin: 0;
+}
+
+#addJournal h2 {
+    margin: 0 0 8px 0;
+}
+
+#mood,
+#notes,
+#symptomsField,
+.week-row,
+.weight-inline {
+    width: 100%;
+    max-width: 320px;
+}
+
+.week-row {
+    margin: 0;
+    text-align: center;  
+}
+
+.week-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #666;
+} 
+
+.week-value {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ff4f7d;
+    margin-left: 4px;
+}
+
+.mood-inline {
+    width: 100%;
+    max-width: 320px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.mood-inline label {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.mood-inline input {
+    width: 100%;
+}
+
+.weight-inline {
+    display: grid;
+    grid-template-columns: 60px 1fr 78px;
+    align-items: center;
+    gap: 10px;
+}
+
+.weight-inline label {
+    align-self: center;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.weight-inline input,
+.weight-inline select {
+    height: 44px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.weight-inline input {
+    width: 100%;
+    min-width: 0;
+    padding: 0 12px;  
+}
+
+.weight-inline select {
+    width: 78px;
+    padding: 0 22px 0 10px;
+}
+
+.notes-inline {
+    width: 100%;
+    max-width: 320px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: start;
+    gap: 10px;
+}
+
+.notes-inline label {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.notes-inline textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+#submitEntryBtn {
+    margin-top: 4px;
+}
+
+#backFromAddBtn {
+    margin-top: 2px;
+}
+
+
+/* -------- SYMPTOMS -------- */
+
+
+#symptomsField {
+    border: none;
+    padding: 16px 14px;
+    margin: 0;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    background: #fbe8ee;
+}
+
+#symptomsField,
+#basicSymptoms,
+#extraSymptoms {
+    box-sizing: border-box;
+}
+
+.symptoms-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+#basicSymptoms,
+#extraSymptoms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 14px;
+    width: 100%;
+    text-align: left;
+}
+
+#extraSymptoms {
+    display: none;
+    margin-top: 12px;
+}
+
+.symptom-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    align-items: start;
+    column-gap: 8px;
+    font-size: 14px;
+    color: #444;
+    white-space: normal;
+    line-height: 1.35;
+    transition: background 0.2s ease;    
+    cursor: pointer;
+}
+
+.symptom-item:hover {
+    background: #ffe3ea;
+}
+
+.symptom-item input {
+    margin: 3px 0 0 0 ;
+    accent-color: #ff4f7d;
+    cursor: pointer;
+}
+
+#toggleSymptoms {
+    display: block;
+    margin: 10px 0 0 auto;
+    font-size: 14px;
+    color: #ff4f7d;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* -------- DELETE CONFIRMATION -------- */
+
+
+.delete-confirmation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1d7df;
+}
+
+.delete-confirmation span {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2a2a2a;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+.delete-confirm-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.delete-confirm-buttons button {
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease;
+}
+
+.cancel-delete-btn {
+    background: #f3f3f3;
+    color: #444;
+}
+
+.cancel-delete-btn:hover {
+    background: #e5e5e5;
+}
+
+.confirm-delete-btn {
+    background: #fc1943;
+    color: white;
+    box-shadow: 0 3px 8px rgba(225, 25, 67, 0.25);
+}
+
+.confirm-delete-btn:hover {
+    background: #d61438;
+    transform: translateY(-1px);
+}
+
+
+/* -------- ANIMATIONS -------- */
+
+
+.fade-in-up {
+    animation: fadeInUp 0.45s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

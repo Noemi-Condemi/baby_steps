@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Steps</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header id="topHeader">
+        <h1>Welcome to Baby Steps</h1>
+        <p class="subtitle">Your Pregnancy Journal</p>
+    </header>
+
+    <div class="app">
+        <section id="welcomeScreen">
+            <section id="userInfo"  class="usernameContainer">
+                <label for="username">Enter your Name: </label>
+                <input type="text" id="username" placeholder="Your name">
+                <p id="nameError" style="color: red;"></p>
+            </section> 
+
+            <section id="startPregnancyDate">
+                <label for="startDate">Start of Pregnancy:</label>
+                <input type="date" id="startDate">
+                <p id="dateError" style="color: red;"></p>
+            </section>
+
+            <section id="welcomeSubmitBtn">
+                <button id="submitBtn" class="app-btn" type="button">Submit</button>
+            </section>
+        </section>
+    
+    
+        <section id="greetingScreen" class="screen" style="display: none;">
+            <h2>
+                <span class="welcome-text" id="welcomeText">✨ Welcome Back ✨</span><br>
+                <span class="username-text" id="greetingTitle"></span>
+            </h2>
+            <p>Welcome to Baby Steps!</p>
+            <button id="continueBtn" class="app-btn" type="button">Menu</button>
+        </section>
+
+        <!-- main menu -->
+        <section id="mainMenu" class="screen" style="display: none;">
+            <p id="welcomeMessage"></p>
+            
+            <h2>💕Your Journey💕</h2>
+            <p class="menu-subtitle">Track your journey and see your progress</p>
+
+            <button id="addEntryBtn" class="app-btn" type="button">Add New Entry</button>
+            <button id="viewAllBtn" class="app-btn" type="button">View All Entries</button>
+            <button id="showProgressBtn" class="app-btn" type="button">Show Progress</button>
+        </section>
+
+        <!-- add entry screen -->
+        <section id="addJournal" class="screen" style="display: none;">
+            <h2>Add New Journal Entry</h2>
+            
+            <div class="week-row">
+                <span class="week-label">Week: </span>
+                <span id="weekDisplay" class="week-value"></span>
+            </div>
+            <p id="weekError" style="color: red;"></p>
+
+            <div class="mood-inline">
+                <label for="mood">Mood:</label>
+                <input type="text" id="mood" placeholder="Enter Mood">
+            </div>
+            
+            <fieldset id="symptomsField">
+                <div class="symptoms-title">Symptoms:</div>
+
+                <div id="basicSymptoms">
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="morning sickness">
+                        Morning Sickness
+                    </label>                
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="mood swings">
+                        Mood Swings
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="nausea">
+                        Nausea
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="fatigue">
+                        Fatigue
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="headache">
+                        Headache
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="cravings">
+                        Cravings
+                    </label>
+                </div>
+
+                <div id="extraSymptoms">
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="frequent urination">
+                        Frequent Urination
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="sensitivity to smell">
+                        Sensitivity To Smell
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="tender swollen breasts">
+                        Tender/Swollen Breasts
+                    </label>
+
+                    <label class="symptom-item">
+                        <input type="checkbox" name="symptoms" value="food drink aversions">
+                        Food/Drink Aversions
+                    </label>
+                </div>
+
+                <button id="toggleSymptoms" type="button">+ More symptoms</button>
+            </fieldset>
+
+            <div class="weight-inline">
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" placeholder="Enter weight" step="0.01" min="0" max="660.99">
+            
+                <select id="unit" aria-label="Weight unit">
+                    <option value="kg">kg</option>
+                    <option value="lbs">lbs</option>
+                </select> 
+            </div>
+            
+            <div class="notes-inline">
+                <label for="notes">Notes: </label>
+                <textarea id="notes" placeholder="Additional notes" rows="4" cols="50"></textarea>
+            </div>
+
+            <button id="submitEntryBtn" class="app-btn" type="button">Submit</button>
+            
+            <section>
+                <button id="backFromAddBtn" class="app-btn" type="button">Back</button>
+            </section>
+        </section>
+
+        <!-- view journal screen -->
+        <section id="journal" class="screen" style="display: none;">
+            <h2>Your Journal</h2>
+            <ul id="journalList"></ul>
+            <section>
+                <button id="backFromViewBtn" class="app-btn" type="button">Back</button>
+            </section>
+        </section>
+
+        <!-- Progress screen -->
+        <section id="progress" class="screen" style="display: none;">
+            <h2>Your Progress</h2>
+            <p id="progressTotal"></p>
+            <p id="progressWeek"></p>
+            <p id="progressSymptom"></p>
+            <p id="progressMood"></p>
+            <section>
+                <button id="backFromProgressBtn" class="app-btn" type="button">Back</button>
+            </section>
+        </section>
+    </div>   
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
