@@ -22,6 +22,37 @@ It provides a simple interface to record mood, symptoms, weight, and notes, and 
 
 ---
 
+## 📸 Screenshots
+
+### Welcome Screen
+![Welcome Empty](images/welcome-empty.png)
+
+![Welcome Filled](images/welcome.png)
+
+
+### Greeting
+![Greeting](images/greeting.png)
+
+
+### Menu
+![Menu](images/menu.png)
+
+
+### Add Entry
+![Add Entry Empty](images/add-entry-empty.png)
+
+![Add Entry Filled](images/add-entry-filled.png)
+
+### Journal
+![Journal Collapsed](images/journal-collapsed.png)
+
+![Journal Expanded](images/journal-expanded.png)
+
+
+### Progress
+![Progress](images/progress.png)
+
+
 ## 🛠️ Tech Stack
 
 - **Backend:** Python, Flask, Flask-SQLAlchemy  
@@ -30,23 +61,35 @@ It provides a simple interface to record mood, symptoms, weight, and notes, and 
 
 ---
 
-### 🚀 Getting Started
+## 🚀 Getting Started
 
-1. Clone the repository  
-git clone https://github.com/Noemi-Condemi/baby_steps.git  
-cd baby_steps  
+### 1. Clone the repository
 
-2. Create a virtual environment  
-python -m venv .venv  
-.venv\Scripts\activate  
+```bash
+git clone https://github.com/Noemi-Condemi/baby_steps.git
+cd baby_steps
+```
 
-3. Install dependencies  
-pip install flask flask_sqlalchemy  
+### 2. Create a virtual environment
 
-4. Run the application  
-python app.py  
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
 
-5. Open in your browser:
+### 3. Install dependencies
+
+```bash
+pip install flask flask_sqlalchemy
+```
+
+### 4. Run the application
+
+```bash
+python app.py
+```
+
+Open in your browser:
 http://127.0.0.1:5000
 
 ## 📌 Notes
